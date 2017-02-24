@@ -32,11 +32,18 @@ var processing = function (number, indexOfBreak) {
 if (number <10 && numberRemainder > 3) {
   outputArray.push(romans[indexOfBreak-2]);
   outputArray.push(romans[indexOfBreak]);
-  return;
+  numberRemainder=0;
+
 } else if (number <100 && numberRemainder > 39) {
   outputArray.push(romans[indexOfBreak-2]);
   outputArray.push(romans[indexOfBreak]);
-  return;
+  //if 91, I want to get 1 out of this only for numberRemainder...
+  numberRemainder= number - 90;
+} else if (number <1000 && numberRemainder > 399) {
+  outputArray.push(romans[indexOfBreak-2]);
+  outputArray.push(romans[indexOfBreak]);
+  //if 901, I want to get 1 out of this only for numberRemainder...
+  numberRemainder= number - 900;
 }
   else if (howManyRoman === 4) {
     console.log("how many roman is 4, outputArray:" + outputArray);
